@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/publicLayout">
+
+<head>
+    <title>Toronto Sign In</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <form class="form-signin" th:action="@{/signin}" action="/signin" method="POST">
+            <h2 class="form-signin-heading">Toronto Sign In</h2>
+
+            <th:block th:if="${param.error != null}">
+                <div th:replace="fragment/alert :: alert (type='danger', message='Sign in error. Please try again.')">Alert</div>
+            </th:block>
+            <th:block th:if="${param.logout != null}">
+                <div th:replace="fragment/alert :: alert (type='success', message='You have been signed out.')">Alert</div>
+            </th:block>
+
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input th:type="text" th:class="form-control" th:name="username" th:placeholder="Username" th:required="required" th:autofocus="true"/>
+
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input th:type="password" th:class="form-control" th:name="password" th:placeholder="Password" th:required="required" th:autofocus="true"/>
+
+            <button class="btn btn-lg btn-primary btn-block" th:type="submit">Sign in</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/publicLayout">
+<head>
+    <title>Access Unauthorized</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1>Access Unauthorized</h1>
+        <h3>Access is denied</h3>
+        <p>You are not authorized to access this page</p>
+        <a href="#" onclick="goBack()" class="btn btn-primary">Back</a>
+    </div>
+</body>
+<script layout:fragment="scriptAfterBody">
+function goBack() {
+    window.history.back();
+}
+</script>
+</html>

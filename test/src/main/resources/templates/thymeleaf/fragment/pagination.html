@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="text-center" th:if="${pager.hasPage}" >
+            <ul class="pagination">
+                <li th:if="${pager.hasPreviousPage}">
+                    <a th:href="@{#}" th:onclick="'javascript:submitPage(\'' + ${1} + '\');'" th:text="'First'"></a>
+                </li>
+                <li th:if="${pager.hasPreviousPage}">
+                    <a th:href="@{#}" th:onclick="'javascript:submitPage(\'' + ${pager.previousPage} + '\');'" th:text="'Previous'"></a>
+                </li>
+
+                <li th:each="pageNum : ${#numbers.sequence( pager.startPage, pager.endPage)}" th:class="${pageNum == pager.currentPage} ? 'active'">
+                    <a th:href="@{#}" th:onclick="'javascript:submitPage(\'' + ${pageNum} + '\');'" th:text="${pageNum}"></a>
+                </li>
+
+                <li th:if="${pager.hasNextPage}">
+                    <a th:href="@{#}" th:onclick="'javascript:submitPage(\'' + ${pager.nextPage} + '\');'" th:text="'Next'"></a>
+                </li>
+                <li th:if="${pager.hasNextPage}">
+                    <a th:href="@{#}" th:onclick="'javascript:submitPage(\'' + ${pager.totalPage} + '\');'" th:text="'Last'"></a>
+                </li>
+            </ul>
+        </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="fragment/publicLayout">
+
+<head>
+    <title>Error</title>
+</head>
+<body>
+    <div layout:fragment="content">
+    <div class="page-header">
+        <h1>SORRY, PAGE CANNOT BE FOUND OR ERROR.</h1>
+    </div>
+    <p class="lead">
+        The page you are looking for cannot be found or error.
+        <br/>The URL may have been misspelled or the page you're looking for is no longer available.
+    </p>
+    <a href="#" onclick="goBack()" class="btn btn-primary">Back</a>
+    </div>
+</body>
+<script layout:fragment="scriptAfterBody">
+function goBack() {
+    window.history.back();
+}
+</script>
+</html>
